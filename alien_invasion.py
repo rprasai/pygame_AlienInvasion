@@ -35,14 +35,8 @@ class AlienInvasion:
         while True:
             self._check_events()
             self.ship.update()  # ship movement
-            self.bullets.update()
+            self._update_bullets()
             self._update_screen()
-
-            # Get rid of bullets that have dissapeared
-            for bullet in self.bullets.copy():
-                if bullet.rect.bottom <= 0:
-                    self.bullets.remove(bullet)
-            print(len(self.bullets))
 
     def _check_events(self):  ##simplyfing the run_game method
         """responding to keypresses and mouse events"""
@@ -82,6 +76,14 @@ class AlienInvasion:
         ):  # limiting numbe of bullets
             new_bullet = Bullet(self)
             self.bullets.add(new_bullet)
+
+    def _update_bullets(self):
+        self.bullets.update()
+        # Get rid of bullets that have dissapeared
+        for bullet in self.bullets.copy():
+            if bullet.rect.bottom <= 0:
+                self.bullets.remove(bullet)
+        # print(len(self.bullets))
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen"""
