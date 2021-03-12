@@ -31,7 +31,7 @@ class AlienInvasion:
         self.bullets = pygame.sprite.Group()
         self.aliens = pygame.sprite.Group()
 
-        self.create_fleet()
+        self._create_fleet()
 
     ## the game is controlled  by run game method
     def run_game(self):
@@ -89,7 +89,7 @@ class AlienInvasion:
                 self.bullets.remove(bullet)
         # print(len(self.bullets))
 
-    def _create_fleet(Self):
+    def _create_fleet(self):
         """Create teh fleet of aliens"""
         # Make an ALien.
         alien = Alien(self)
