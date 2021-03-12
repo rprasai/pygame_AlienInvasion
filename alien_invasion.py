@@ -41,6 +41,7 @@ class AlienInvasion:
             self.ship.update()  # ship movement
             self._update_bullets()
             self._update_screen()
+            self._update_aliens()
 
     def _check_events(self):  ##simplyfing the run_game method
         """responding to keypresses and mouse events"""
@@ -120,6 +121,10 @@ class AlienInvasion:
         alien.rect.x = alien.x
         alien.rect.y = alien.rect.height + 2 * alien.rect.height * row_number
         self.aliens.add(alien)
+
+    def _update_aliens(self):
+        """Update the positions of all aliens in the fleet"""
+        self.aliens.update()
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen"""
