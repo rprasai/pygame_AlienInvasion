@@ -1,7 +1,7 @@
 import pygame.font
 
 
-class Botton:
+class Button:
     def __init__(self, ai_game, msg):
         """Initialize botton attributes."""
         self.screen = ai_game.screen
